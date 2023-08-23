@@ -9,7 +9,6 @@ public class MinLengthAdapter : AttributeAdapterBase<MinLengthAttribute>
     public MinLengthAdapter(MinLengthAttribute attribute)
         : base(attribute, null)
     {
-        attribute.ErrorMessage = Validation.For("MinLength");
     }
 
     public override void AddValidation(ClientModelValidationContext context)
@@ -19,6 +18,6 @@ public class MinLengthAdapter : AttributeAdapterBase<MinLengthAttribute>
     }
     public override String GetErrorMessage(ModelValidationContextBase validationContext)
     {
-        return GetErrorMessage(validationContext.ModelMetadata);
+        return Validation.For("MinLength", validationContext.ModelMetadata.GetDisplayName(), Attribute.Length);
     }
 }

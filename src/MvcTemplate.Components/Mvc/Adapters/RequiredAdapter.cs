@@ -9,7 +9,6 @@ public class RequiredAdapter : AttributeAdapterBase<RequiredAttribute>
     public RequiredAdapter(RequiredAttribute attribute)
         : base(attribute, null)
     {
-        attribute.ErrorMessage = Validation.For("Required");
     }
 
     public override void AddValidation(ClientModelValidationContext context)
@@ -18,6 +17,6 @@ public class RequiredAdapter : AttributeAdapterBase<RequiredAttribute>
     }
     public override String GetErrorMessage(ModelValidationContextBase validationContext)
     {
-        return GetErrorMessage(validationContext.ModelMetadata);
+        return Validation.For("Required", validationContext.ModelMetadata.GetDisplayName());
     }
 }

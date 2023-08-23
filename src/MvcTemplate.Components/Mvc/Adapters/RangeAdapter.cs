@@ -9,7 +9,6 @@ public class RangeAdapter : AttributeAdapterBase<RangeAttribute>
     public RangeAdapter(RangeAttribute attribute)
         : base(attribute, null)
     {
-        attribute.ErrorMessage = Validation.For("Range");
     }
 
     public override void AddValidation(ClientModelValidationContext context)
@@ -20,6 +19,6 @@ public class RangeAdapter : AttributeAdapterBase<RangeAttribute>
     }
     public override String GetErrorMessage(ModelValidationContextBase validationContext)
     {
-        return GetErrorMessage(validationContext.ModelMetadata);
+        return Validation.For("Range", validationContext.ModelMetadata.GetDisplayName(), Attribute.Minimum, Attribute.Maximum);
     }
 }

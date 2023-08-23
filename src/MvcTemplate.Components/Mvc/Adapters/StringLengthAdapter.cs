@@ -9,7 +9,6 @@ public class StringLengthAdapter : AttributeAdapterBase<StringLengthAttribute>
     public StringLengthAdapter(StringLengthAttribute attribute)
         : base(attribute, null)
     {
-        attribute.ErrorMessage = Validation.For(Attribute.MinimumLength == 0 ? "StringLength" : "StringLengthRange");
     }
 
     public override void AddValidation(ClientModelValidationContext context)
@@ -22,6 +21,9 @@ public class StringLengthAdapter : AttributeAdapterBase<StringLengthAttribute>
     }
     public override String GetErrorMessage(ModelValidationContextBase validationContext)
     {
-        return GetErrorMessage(validationContext.ModelMetadata);
+        if (Attribute.MinimumLength == 0)
+            return Validation.For("StringLength", validationContext.ModelMetadata.GetDisplayName(), Attribute.MaximumLength);
+
+        return Validation.For("StringLengthRange", validationContext.ModelMetadata.GetDisplayName(), Attribute.MaximumLength, Attribute.MinimumLength);
     }
 }

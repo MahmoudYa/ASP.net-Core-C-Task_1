@@ -9,7 +9,6 @@ public class EmailAddressAdapter : AttributeAdapterBase<EmailAddressAttribute>
     public EmailAddressAdapter(EmailAddressAttribute attribute)
         : base(attribute, null)
     {
-        attribute.ErrorMessage = Validation.For("EmailAddress");
     }
 
     public override void AddValidation(ClientModelValidationContext context)
@@ -18,6 +17,6 @@ public class EmailAddressAdapter : AttributeAdapterBase<EmailAddressAttribute>
     }
     public override String GetErrorMessage(ModelValidationContextBase validationContext)
     {
-        return GetErrorMessage(validationContext.ModelMetadata);
+        return Validation.For("EmailAddress", validationContext.ModelMetadata.GetDisplayName());
     }
 }

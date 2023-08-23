@@ -9,7 +9,6 @@ public class CompareAdapter : AttributeAdapterBase<CompareAttribute>
     public CompareAdapter(CompareAttribute attribute)
         : base(attribute, null)
     {
-        attribute.ErrorMessage = Validation.For("Compare");
     }
 
     public override void AddValidation(ClientModelValidationContext context)
@@ -19,6 +18,8 @@ public class CompareAdapter : AttributeAdapterBase<CompareAttribute>
     }
     public override String GetErrorMessage(ModelValidationContextBase validationContext)
     {
-        return GetErrorMessage(validationContext.ModelMetadata);
+        String otherPropertyDisplayName = Resource.ForProperty(validationContext.ModelMetadata.ContainerType!, Attribute.OtherProperty);
+
+        return Validation.For("Compare", validationContext.ModelMetadata.GetDisplayName(), otherPropertyDisplayName);
     }
 }

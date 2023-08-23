@@ -9,7 +9,6 @@ public class MaxLengthAdapter : AttributeAdapterBase<MaxLengthAttribute>
     public MaxLengthAdapter(MaxLengthAttribute attribute)
         : base(attribute, null)
     {
-        attribute.ErrorMessage = Validation.For("MaxLength");
     }
 
     public override void AddValidation(ClientModelValidationContext context)
@@ -19,6 +18,6 @@ public class MaxLengthAdapter : AttributeAdapterBase<MaxLengthAttribute>
     }
     public override String GetErrorMessage(ModelValidationContextBase validationContext)
     {
-        return GetErrorMessage(validationContext.ModelMetadata);
+        return Validation.For("MaxLength", validationContext.ModelMetadata.GetDisplayName(), Attribute.Length);
     }
 }
