@@ -1,0 +1,45 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:9860/domain/",
+      "sslPort": 44346
+    }
+  },
+  "profiles": {
+    "IIS Express (Development)": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_HTTPS_PORT": "44346",
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "IIS Express (Staging)": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_HTTPS_PORT": "44346",
+        "ASPNETCORE_ENVIRONMENT": "Staging"
+      }
+    },
+    "IIS Express (Production)": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_HTTPS_PORT": "44346",
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      }
+    },
+    "Kestrel (Development)": {
+      "commandName": "Project",
+      "launchBrowser": false,
+      "hotReloadProfile": "aspnetcore",
+      "applicationUrl": "https://localhost:9860",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+@model ModuleModel
+namespace Temp.Objects;
+
+public class @(Model.Model)View : AView<@Model.Model>
+{
+    [StringLength(128)]
+    public String Title { get; set; }
+}

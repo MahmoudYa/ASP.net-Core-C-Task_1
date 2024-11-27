@@ -1,0 +1,13 @@
+{
+    "Cookies": {
+        "Antiforgery": ".Temp-Prod-Token",
+        "Auth": ".Temp-Prod-Auth",
+        "TempData": ".Temp-Prod-Temp",
+        "Session": ".Temp-Prod-Session"
+    },
+    "Logging": {
+        "LogLevel": {
+            "Default": "Warning"
+        }
+    }
+}

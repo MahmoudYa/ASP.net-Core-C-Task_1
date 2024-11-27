@@ -1,0 +1,5 @@
+{
+    "Data": {
+        "Connection": "Server=(localdb)\\mssqllocaldb;Database=TempTest;Trusted_Connection=True;MultipleActiveResultSets=True"
+    }
+}
